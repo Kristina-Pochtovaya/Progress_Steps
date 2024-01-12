@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Multi&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --backround-color: #f6f7fb;
+    --backround-color-progress-line: #3498db;
+    --backround-color-backround-line: #e0e0e0;
+    --grey: #999;
+    --white: #fff;
+}
+
+body {
+    font-family: 'Multi', 'sans-serif';
+    background-color: var(--backround-color);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    width: 350px;
+    max-width: 100%;
+    position: relative;
+}
+
+.progress {
+    position: absolute;
+    background-color: var(--backround-color-progress-line);
+    top: 50%;
+    left: 0;
+    width: 0;
+    height: 4px;
+    transform: translateY(-50%);
+    z-index: -1;
+    transition: .4s ease;
+}
+
+.progress-container:before {
+    content: '';
+    position: absolute;
+    background-color: var(--backround-color-backround-line);
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+
+.circle {
+    background-color: var(--white);
+    color: var(--grey);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--backround-color-backround-line);
+    transition: .4s ease;
+}
+
+.circle.active {
+    border-color: var(--backround-color-progress-line);
+}
+
+.btn {
+    cursor: pointer;
+    border: 0;
+    border-radius: 6px;
+    font-family: inherit;
+    background-color: var(--backround-color-progress-line);
+    color: var(--white);
+    padding: 8px 30px;
+    margin: 5px;
+}
+
+.btn:active {
+    transform: scale(.98);
+}
+
+.btn:focus {
+    outline: 0;
+}
+
+.btn:disabled {
+    background-color: var(--backround-color-backround-line);
+    cursor: not-allowed;
+}
